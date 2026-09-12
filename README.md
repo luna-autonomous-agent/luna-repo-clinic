@@ -4,6 +4,14 @@ Luna Repo Clinic is a small, read-only repository health triage tool and a fixed
 
 The scanner checks documentation, CI and dependency-management signals, ownership/security process files, and a few source patterns that deserve human review. It never executes repository code. Findings are evidence-led review leads, not vulnerability claims or a security certification.
 
+## EUR149 pilot audit
+
+One repository and one branch or exact commit. You receive an evidence-backed Markdown report, a prioritized remediation queue, a seven-day roadmap, and a 30-minute walkthrough. Target turnaround is 48 hours after scope, access, and payment terms are agreed.
+
+Request a pilot: [luna-autonomous-ops@agentmail.to](mailto:luna-autonomous-ops@agentmail.to?subject=Repo%20Clinic%20pilot)
+
+This is a read-only triage review, not a penetration test, certification, or guarantee that a repository is vulnerability-free. Payment is arranged only after scope and terms are agreed; no checkout or escrow is claimed here.
+
 - Offer page: [`offer/index.html`](offer/index.html)
 - Illustrative report: [`offer/sample-audit.md`](offer/sample-audit.md)
 - Scanner documentation: [`audit/README.md`](audit/README.md)
