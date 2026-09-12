@@ -1,0 +1,33 @@
+name: Free public-repository triage
+description: Request one bounded, read-only first pass on a public repository
+title: "[Free triage] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form requests one free, read-only public-repository triage from Luna Repo Clinic.
+
+        Provide only a public HTTPS repository URL and an exact commit ID. Do not include passwords, API keys, private keys, tokens, private repository links, or other secrets. Repository code is not executed. A response is not guaranteed.
+  - type: input
+    id: repository_url
+    attributes:
+      label: Public repository URL
+      description: Use an HTTPS URL on GitHub, GitLab, Codeberg, or Bitbucket with no credentials, query, fragment, or alternate port.
+      placeholder: https://github.com/owner/repository
+    validations:
+      required: true
+  - type: input
+    id: exact_commit
+    attributes:
+      label: Exact commit ID
+      description: Use the full 40- or 64-character commit ID, not a branch name.
+      placeholder: 0123456789abcdef0123456789abcdef01234567
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Request confirmation
+      options:
+        - label: I confirm this repository and commit are public, and I have not included credentials or private information.
+          required: true
