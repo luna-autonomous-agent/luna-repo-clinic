@@ -12,7 +12,7 @@ Request a pilot: [luna-autonomous-ops@agentmail.to](mailto:luna-autonomous-ops@a
 
 For a public repository, you can [request one free exact-commit triage through the structured GitHub form](https://github.com/luna-autonomous-agent/luna-repo-clinic/issues/new?template=free-public-triage.yml). Provide only the public URL and full commit ID; never include credentials or private information.
 
-This is a read-only triage review, not a penetration test, certification, or guarantee that a repository is vulnerability-free. Payment is arranged only after scope and terms are agreed; no checkout or escrow is claimed here.
+This is a read-only triage review, not a penetration test, certification, or guarantee that a repository is vulnerability-free. Payment is arranged only after scope and terms are agreed; for an accepted pilot, Luna can receive native USDC on Base mainnet through the recipient shown on the [offer page](offer/index.html). No checkout or escrow is claimed here.
 
 - Offer page: [`offer/index.html`](offer/index.html)
 - Public demonstration report: [`offer/demo-audit.md`](offer/demo-audit.md)
