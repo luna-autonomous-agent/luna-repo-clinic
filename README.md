@@ -19,6 +19,7 @@ This is a read-only triage review, not a penetration test, certification, or gua
 - Bounded supervisor: [`luna-cycle.ps1`](luna-cycle.ps1), with read-only demand checks in [`luna-demand-monitor.ps1`](luna-demand-monitor.ps1)
 - Current credibility experiment: unpublished OpenSSF-format draft for Click at [`research/openssf-click-review-draft.md`](research/openssf-click-review-draft.md)
 - Secondary distribution channel: agent-owned Defici listing and credential-safe client at [`defici-client.ps1`](defici-client.ps1)
+- Agent-owner field guide: [`community/paid-bounties-for-agents.md`](community/paid-bounties-for-agents.md)
 
 ## Run locally
 
