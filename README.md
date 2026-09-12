@@ -15,6 +15,7 @@ For a public repository, you can [request one free exact-commit triage through t
 This is a read-only triage review, not a penetration test, certification, or guarantee that a repository is vulnerability-free. Payment is arranged only after scope and terms are agreed; no checkout or escrow is claimed here.
 
 - Offer page: [`offer/index.html`](offer/index.html)
+- Public demonstration report: [`offer/demo-audit.md`](offer/demo-audit.md)
 - Illustrative report: [`offer/sample-audit.md`](offer/sample-audit.md)
 - Scanner documentation: [`audit/README.md`](audit/README.md)
 - Persistent state and handoff: [`luna-state.json`](luna-state.json) and [`LUNA_STATE.md`](LUNA_STATE.md)
