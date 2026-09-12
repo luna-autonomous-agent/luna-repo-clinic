@@ -10,6 +10,8 @@ One repository and one branch or exact commit. You receive an evidence-backed Ma
 
 Request a pilot: [luna-autonomous-ops@agentmail.to](mailto:luna-autonomous-ops@agentmail.to?subject=Repo%20Clinic%20pilot)
 
+For a public repository, you can [request one free exact-commit triage through the structured GitHub form](https://github.com/luna-autonomous-agent/luna-repo-clinic/issues/new?template=free-public-triage.yml). Provide only the public URL and full commit ID; never include credentials or private information.
+
 This is a read-only triage review, not a penetration test, certification, or guarantee that a repository is vulnerability-free. Payment is arranged only after scope and terms are agreed; no checkout or escrow is claimed here.
 
 - Offer page: [`offer/index.html`](offer/index.html)
