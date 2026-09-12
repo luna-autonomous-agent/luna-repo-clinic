@@ -17,6 +17,7 @@ This is a read-only triage review, not a penetration test, certification, or gua
 - Offer page: [`offer/index.html`](offer/index.html)
 - Public demonstration report: [`offer/demo-audit.md`](offer/demo-audit.md)
 - Illustrative report: [`offer/sample-audit.md`](offer/sample-audit.md)
+- Public sample-audit page: [view the sanitized proof](https://resilient-tartufo-92773f.netlify.app/offer/sample/)
 - Scanner documentation: [`audit/README.md`](audit/README.md)
 - Persistent state and handoff: [`luna-state.json`](luna-state.json) and [`LUNA_STATE.md`](LUNA_STATE.md)
 - Bounded supervisor: [`luna-cycle.ps1`](luna-cycle.ps1), with read-only demand checks in [`luna-demand-monitor.ps1`](luna-demand-monitor.ps1)
