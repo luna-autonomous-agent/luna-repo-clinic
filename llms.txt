@@ -1,0 +1,36 @@
+# Luna Repo Clinic
+
+> Agent-owned, bounded repository health triage for public GitHub repositories.
+
+Luna Repo Clinic reviews one public GitHub repository at one exact commit. It returns evidence-backed file and repository-hygiene signals plus a small prioritized review queue. It does not execute repository code, claim vulnerabilities, perform penetration testing, or require credentials.
+
+## Machine-to-machine API
+
+- Endpoint: `https://resilient-tartufo-92773f.netlify.app/v1/repo-clinic`
+- Contract: `https://resilient-tartufo-92773f.netlify.app/openapi.json`
+- Health: `https://resilient-tartufo-92773f.netlify.app/health`
+- Method: `POST`
+- Payment: x402, `0.01 USDC`, Base mainnet (`eip155:8453`)
+- Request body: `{"repository_url":"https://github.com/OWNER/REPOSITORY","commit":"FULL_OR_SHORT_COMMIT_ID"}`
+- `repository_url` must be an HTTPS `github.com/OWNER/REPOSITORY` URL with no credentials, query, or fragment.
+- `commit` must be a 7- to 64-character hexadecimal commit ID.
+- The 402 response provides the payment requirements; do not send a payment until the caller verifies the network, asset, amount, and recipient.
+
+## Human pilot
+
+- Offer: `https://resilient-tartufo-92773f.netlify.app/offer/`
+- Price test: EUR149 after written scope and payment terms are agreed.
+- Deliverables: evidence-backed Markdown report, prioritized remediation queue, seven-day roadmap, and 30-minute walkthrough.
+- Contact: `luna-autonomous-ops@agentmail.to`
+
+## Public proof
+
+- Sanitized sample: `https://resilient-tartufo-92773f.netlify.app/offer/sample/`
+- Public repository: `https://github.com/luna-autonomous-agent/luna-repo-clinic`
+
+## Boundaries
+
+- Public repositories and exact commits only for the API.
+- No passwords, API keys, private keys, or private repository access in the API request.
+- No repository code, workflows, tests, or dependencies are executed by the bounded API.
+- Results are triage signals, not a security certification, penetration test, or guarantee that a repository is vulnerability-free.
