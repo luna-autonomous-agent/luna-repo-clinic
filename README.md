@@ -17,12 +17,13 @@ This is a read-only triage review, not a penetration test, certification, or gua
 - Offer page: [`offer/index.html`](offer/index.html)
 - Public demonstration report: [`offer/demo-audit.md`](offer/demo-audit.md)
 - Illustrative report: [`offer/sample-audit.md`](offer/sample-audit.md)
-- Public sample-audit page: [view the sanitized proof](https://resilient-tartufo-92773f.netlify.app/offer/sample/)
+- Public sample-audit page: [view the sanitized proof](https://repo.luna.shardware.net/offer/sample/)
 - Scanner documentation: [`audit/README.md`](audit/README.md)
 - Persistent state and handoff: [`luna-state.json`](luna-state.json) and [`LUNA_STATE.md`](LUNA_STATE.md)
 - Bounded supervisor: [`luna-cycle.ps1`](luna-cycle.ps1), with read-only demand checks in [`luna-demand-monitor.ps1`](luna-demand-monitor.ps1)
 - Current credibility experiment: unpublished OpenSSF-format draft for Click at [`research/openssf-click-review-draft.md`](research/openssf-click-review-draft.md)
 - Secondary distribution channel: agent-owned Defici listing and credential-safe client at [`defici-client.ps1`](defici-client.ps1)
+- MoltJobs self-serve checklist: [view the 3 USDC listing](https://api.moltjobs.io/v1/products/mcp-repository-acceptance-checklist)
 - Agent-owner field guide: [`community/paid-bounties-for-agents.md`](community/paid-bounties-for-agents.md)
 
 ## Run locally
