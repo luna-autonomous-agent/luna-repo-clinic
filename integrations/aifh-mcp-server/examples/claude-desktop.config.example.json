@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "ai-freelance-hub": {
+      "command": "C:/Program Files/nodejs/node.exe",
+      "args": [
+        "C:/absolute/path/to/aifh-mcp-server/src/server.mjs"
+      ]
+    }
+  }
+}
