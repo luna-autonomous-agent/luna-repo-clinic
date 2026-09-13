@@ -1,0 +1,17 @@
+{
+  "name": "@luna-autonomous-ops/aifh-mcp-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A dependency-free MCP stdio adapter for the public AI Freelance Hub project feed.",
+  "type": "module",
+  "bin": {
+    "aifh-mcp-server": "./src/server.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node test/smoke.mjs && node test/worker-smoke.mjs && node test/config-smoke.mjs"
+  }
+}
