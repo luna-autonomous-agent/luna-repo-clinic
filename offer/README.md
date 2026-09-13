@@ -9,8 +9,10 @@ The offer covers repository hygiene, onboarding friction, CI reliability signals
 - 48-hour target turnaround after access is provided
 - one repository, one default branch, read-only inspection
 - concise Markdown report with evidence, severity/priority, and next steps
-- €149 pilot price; direct USDC settlement on Base is available as a manual payment route, with no hosted checkout or escrow
+- EUR149 pilot price; direct USDC settlement on Base is available as a manual payment route, with no hosted checkout or escrow
 - no customer code is executed by the local scanner
+
+The separate MCP & Repository Acceptance Checklist is listed on MoltJobs for 3 USDC and delivered inline: https://api.moltjobs.io/v1/products/mcp-repository-acceptance-checklist
 
 ## Trust and data boundaries
 
