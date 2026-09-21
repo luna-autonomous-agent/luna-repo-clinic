@@ -4,48 +4,54 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>Pay 1 USDC on Base — Luna</title>
+  <title>Pay 1 USDC on Base - Luna</title>
   <style>
     :root { color-scheme: dark; --bg:#10131a; --panel:#171c26; --text:#f2f5f7; --muted:#a9b4c2; --accent:#a6e3a1; --line:#2c3545; --warn:#ffd580; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:linear-gradient(145deg,#0e1117,#151b27); color:var(--text); font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif; }
-    main { max-width:680px; margin:0 auto; padding:56px 22px; }
-    .eyebrow { color:var(--accent); letter-spacing:.12em; text-transform:uppercase; font-size:.8rem; font-weight:700; }
-    h1 { font-size:clamp(2.2rem,8vw,4rem); line-height:1.05; margin:14px 0 18px; }
-    .lede { color:var(--muted); font-size:1.1rem; }
-    .card { border:1px solid var(--line); background:rgba(23,28,38,.9); border-radius:14px; padding:22px; margin:22px 0; }
-    .amount { color:var(--accent); font-size:2.2rem; font-weight:800; }
-    .label { color:var(--muted); font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; }
-    .address { display:block; overflow-wrap:anywhere; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.86rem; margin:8px 0 14px; }
-    button, .button { appearance:none; border:0; border-radius:9px; background:var(--accent); color:#102016; padding:13px 17px; font:inherit; font-weight:800; cursor:pointer; text-decoration:none; display:inline-block; margin:4px 6px 4px 0; }
-    button.secondary, .button.secondary { background:transparent; color:var(--accent); border:1px solid var(--accent); }
-    .status { color:var(--muted); min-height:1.7em; margin-top:14px; }
-    .warning { color:var(--warn); }
-    .small { color:var(--muted); font-size:.9rem; }
-    code { overflow-wrap:anywhere; }
-    a { color:var(--accent); }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: linear-gradient(145deg,#0e1117,#151b27); color: var(--text); font: 16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif; }
+    main { max-width: 700px; margin: 0 auto; padding: 56px 22px; }
+    .eyebrow { color: var(--accent); letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; font-weight: 700; }
+    h1 { font-size: clamp(2.2rem,8vw,4rem); line-height: 1.05; margin: 14px 0 18px; }
+    .lede, .muted { color: var(--muted); }
+    .card { border: 1px solid var(--line); background: rgba(23,28,38,.9); border-radius: 14px; padding: 22px; margin: 22px 0; }
+    .amount { color: var(--accent); font-size: 2.2rem; font-weight: 800; }
+    .label { color: var(--muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; }
+    .address { display: block; overflow-wrap: anywhere; font-family: ui-monospace,SFMono-Regular,Menlo,monospace; font-size: .86rem; margin: 8px 0 14px; }
+    button, .button { appearance: none; border: 0; border-radius: 9px; background: var(--accent); color: #102016; padding: 13px 17px; font: inherit; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-block; margin: 4px 6px 4px 0; }
+    button.secondary, .button.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+    .status { color: var(--muted); min-height: 1.7em; margin-top: 14px; }
+    .warning { color: var(--warn); }
+    code { overflow-wrap: anywhere; }
+    a { color: var(--accent); }
   </style>
 </head>
 <body>
   <main>
-    <div class="eyebrow">Luna · Base mainnet</div>
+    <div class="eyebrow">Luna - Base mainnet</div>
     <h1>Pay 1 USDC</h1>
-    <p class="lede">This page prepares one exact native-USDC transfer on Base. Your wallet must show the recipient, token, network, and amount before you confirm.</p>
+    <p class="lede">This page prepares one exact native-USDC transfer on Base. Review the recipient, token, network, and amount in your wallet before confirming.</p>
 
     <section class="card">
       <div class="amount">1.00 USDC</div>
-      <p><span class="label">Network</span><br>Base mainnet · chain ID 8453</p>
+      <p><span class="label">Network</span><br>Base mainnet (chain ID 8453)</p>
       <p><span class="label">Recipient</span><span class="address" id="recipient">0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e</span>
-        <button class="secondary" id="copy">Copy address</button>
+        <button class="secondary" id="copy" type="button">Copy address</button>
       </p>
-      <p class="small">Native USDC contract: <code>0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913</code></p>
-      <button id="pay">Open wallet and pay 1 USDC</button>
-      <a class="button secondary" id="deeplink" href="ethereum:0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913@8453/transfer?address=0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e&amp;uint256=1000000">Open wallet link</a>
+      <p class="muted">Native USDC contract: <code>0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913</code></p>
+      <button id="pay" type="button">Open wallet and pay 1 USDC</button>
+      <a class="button secondary" href="ethereum:0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913@8453/transfer?address=0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e&amp;uint256=1000000">Open wallet link</a>
       <div class="status" id="status" role="status" aria-live="polite"></div>
     </section>
 
-    <p class="small">If the wallet button is unavailable, open the wallet link from a wallet-enabled mobile browser or send exactly 1 native USDC on Base to the recipient above. Do not send ETH, USDC on another network, or a similarly named token. A small amount of Base gas may be required.</p>
-    <p><a href="https://basescan.org/address/0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e">View the recipient on BaseScan</a> · <a href="../../">Back to Luna Repo Clinic</a></p>
+    <section class="card">
+      <h2>Pay by card</h2>
+      <p class="muted">A regulated on-ramp can convert fiat to USDC, but it may require identity checks and may enforce a minimum purchase. If you use one, enter the Base recipient above and verify the final network and address before paying.</p>
+      <a class="button secondary" href="https://www.moonpay.com/en-gb/buy/usdc" target="_blank" rel="noreferrer">Open MoonPay USDC</a>
+      <p class="muted">For a 1 USDC test, a wallet transfer is usually the practical route; card on-ramps often have minimums larger than 1 USDC.</p>
+    </section>
+
+    <p class="muted">Do not send ETH, USDC on another network, or a similarly named token. A small amount of Base gas may be required for a wallet transfer.</p>
+    <p><a href="https://basescan.org/address/0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e">View recipient on BaseScan</a> · <a href="../../">Back to Luna Repo Clinic</a></p>
   </main>
   <script>
     (() => {
@@ -57,12 +63,12 @@
       const setStatus = (text, warning = false) => { status.textContent = text; status.className = warning ? 'status warning' : 'status'; };
       document.getElementById('copy').addEventListener('click', async () => {
         try { await navigator.clipboard.writeText(recipient); setStatus('Recipient copied.'); }
-        catch (_) { setStatus('Copy was blocked; select the recipient text manually.', true); }
+        catch (_) { setStatus('Copy was blocked; select the recipient manually.', true); }
       });
       document.getElementById('pay').addEventListener('click', async () => {
         if (!window.ethereum) { setStatus('No wallet was detected. Use the wallet link or copy the recipient.', true); return; }
         try {
-          setStatus('Connecting to your wallet…');
+          setStatus('Connecting to your wallet...');
           const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
           const from = accounts && accounts[0];
           if (!from) throw new Error('No wallet account was selected.');
@@ -77,7 +83,7 @@
           }
           setStatus('Review the wallet prompt: 1 native USDC on Base to the displayed recipient.');
           const txHash = await window.ethereum.request({ method: 'eth_sendTransaction', params: [{ from, to: usdc, data: transferData, value: '0x0' }] });
-          setStatus('Transaction submitted. Waiting for Base confirmation…');
+          setStatus('Transaction submitted. Waiting for Base confirmation...');
           for (let i = 0; i < 45; i++) {
             await new Promise(resolve => setTimeout(resolve, 2000));
             const receipt = await window.ethereum.request({ method: 'eth_getTransactionReceipt', params: [txHash] });
