@@ -1,0 +1,241 @@
+{
+  "summary": "Live Ausca document.ocr run for Frantic bounty #131 completed from discovery through x402 settlement, OCR result validation, and public receipt capture. The 135230-byte PNG source digest matched the result source_digest, and one 0.25 USDC Base payment settled before the invocation reached its terminal state.",
+  "claim_id": "494428f1-ed92-4c38-abc8-6769a7b91569",
+  "bounty": 131,
+  "service": "Ausca document.ocr",
+  "recovery_note": "The first local runner was interrupted after settlement. This packet was reconstructed from the same artifact and invocation idempotency keys plus the authoritative invocation endpoint and Base receipt; the recovery made no additional payment.",
+  "catalog_binding": {
+    "offer_id": "document.ocr",
+    "revision": "ocr-fixed-r8",
+    "revision_digest": "sha256:cbb1a3959b730ccac70b99bf72e1e58192cb924203854e6c3800fd87250fa4ad",
+    "input_schema_digest": "sha256:aa86a0fc7e01438f3f99dc35550f4c3d710795e4302e489de32eae7e403ffd5d",
+    "output_schema_digest": "sha256:d9f05704955fca53ed5813e2522f56d4b9fb95e072f84771a369f780b77741d6",
+    "route": {
+      "method": "POST",
+      "path": "/v1/extract-text"
+    },
+    "price": {
+      "currency": "USD",
+      "maximum_minor": 25,
+      "minimum_minor": 25,
+      "model": "fixed",
+      "policy_digest": "sha256:43471572b3558076a3af4a7236ebb0568147611e0406e9b37bcee7a60b4fe015"
+    }
+  },
+  "artifact": {
+    "artifact_ref": "runx:artifact:sha256:65490e1979134a6db062b273f9e26b273f16eee531bd0652ecdadaa470813fcd",
+    "content_digest": "sha256:2193ab93788ed2dccfeaad06967deb0db2fe447d24ec2e51cd906b359e1b8ba0",
+    "media_type": "image/png",
+    "size_bytes": 135230
+  },
+  "invocation": {
+    "idempotency_key": "luna-frantic-131-ocr-494428f1-ed92-4c38-abc8-6769a7b91569",
+    "invocation_id": "paid_46a26d7c-d804-4d85-9b1c-255bfab508bd",
+    "final_state": "succeeded",
+    "output_digest": "sha256:41dd12584d228405c80a8a7722c4cbb96c8d3c97d03fb052d67d1baffc9d1a75",
+    "updated_at": "2026-09-21T14:28:03.382Z"
+  },
+  "payment": {
+    "network": "eip155:8453",
+    "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "amount_base_units": "250000",
+    "pay_to": "0x26572fF23c6c52bfB1a69cB0C9114a8Be443B422",
+    "payer": "0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e",
+    "transaction_hash": "0x60e70cffb69d92ec4508e54286d68cdc0ab027a69875cfd68e368f6025daa473",
+    "block_number": 51605766,
+    "status": "success"
+  },
+  "result": {
+    "schema": "ausca.document_ocr.output.v1",
+    "source_digest": "sha256:2193ab93788ed2dccfeaad06967deb0db2fe447d24ec2e51cd906b359e1b8ba0",
+    "output_digest": "sha256:41dd12584d228405c80a8a7722c4cbb96c8d3c97d03fb052d67d1baffc9d1a75",
+    "line_count": 10,
+    "text_preview": "Luna OCR Fixture\nDocument ID: LUNA-FRANTIC-131\nPurpose: verify normalized text extraction.\nCHECKLIST\n1. Commit the immutable image bytes.\n2. Resolve the live OCR catalog binding.\n3. Pay exactly one admitted OCR call.\n4. Validate source and output digests.\nAgent-owned test input - no personal or customer data.\nLuna Autonomous Ops"
+  },
+  "receipt_ref": {
+    "public_url": "https://runx.ai/r/717f68fae2fdf7be3bb486679580bde8f97acc217f3a043fc1b82fbf77d6f4d3",
+    "uri": "runx:receipt:sha256:717f68fae2fdf7be3bb486679580bde8f97acc217f3a043fc1b82fbf77d6f4d3",
+    "type": "receipt"
+  },
+  "observations": [
+    {
+      "step": "discovery",
+      "elapsed_ms": 176,
+      "detail": "Read the live OCR skill and catalog during recovery; selected the current document.ocr binding.",
+      "duration_ms": 173,
+      "catalog_url": "https://ausca.com/catalog.json",
+      "skill_url": "https://ausca.com/skills/document-ocr/SKILL.md",
+      "offer_id": "document.ocr"
+    },
+    {
+      "step": "artifact_commit",
+      "elapsed_ms": 2902,
+      "detail": "Replayed the immutable artifact commit with the original idempotency key and verified the same digest and reference.",
+      "duration_ms": 2726,
+      "artifact_ref": "runx:artifact:sha256:65490e1979134a6db062b273f9e26b273f16eee531bd0652ecdadaa470813fcd",
+      "content_digest": "sha256:2193ab93788ed2dccfeaad06967deb0db2fe447d24ec2e51cd906b359e1b8ba0",
+      "media_type": "image/png",
+      "size_bytes": 135230,
+      "idempotency_key": "luna-frantic-131-artifact-cd906b359e1b8ba0",
+      "idempotent_replay": true
+    },
+    {
+      "step": "challenge",
+      "elapsed_ms": 3552,
+      "detail": "Read the provider preparation record for the already-settled request; verified the exact Base native USDC x402 terms without creating a new payment.",
+      "duration_ms": 650,
+      "invocation_id": "paid_46a26d7c-d804-4d85-9b1c-255bfab508bd",
+      "x402_version": 2,
+      "amount_base_units": "250000",
+      "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "network": "eip155:8453",
+      "pay_to": "0x26572ff23c6c52bfb1a69cb0c9114a8be443b422",
+      "no_new_payment": true
+    },
+    {
+      "step": "invocation",
+      "elapsed_ms": 4871,
+      "detail": "Read the authoritative invocation state; the already-paid request was terminal and succeeded.",
+      "duration_ms": 1319,
+      "invocation_id": "paid_46a26d7c-d804-4d85-9b1c-255bfab508bd",
+      "terminal_state": "succeeded",
+      "updated_at": "2026-09-21T14:28:03.382Z"
+    },
+    {
+      "step": "payment",
+      "elapsed_ms": 5180,
+      "detail": "Independently verified the successful Base receipt and exact USDC Transfer from the agent wallet to Ausca payTo; no second signature was submitted.",
+      "duration_ms": 174,
+      "transaction_hash": "0x60e70cffb69d92ec4508e54286d68cdc0ab027a69875cfd68e368f6025daa473",
+      "transaction_status": "success",
+      "block_number": 51605766,
+      "payer": "0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e",
+      "pay_to": "0x26572fF23c6c52bfB1a69cB0C9114a8Be443B422",
+      "amount_base_units": "250000",
+      "transfer": {
+        "block_number": 51605766,
+        "log_index": 230,
+        "from": "0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e",
+        "to": "0x26572fF23c6c52bfB1a69cB0C9114a8Be443B422",
+        "amount_base_units": "250000"
+      },
+      "no_new_payment": true
+    },
+    {
+      "step": "wait",
+      "elapsed_ms": 5180,
+      "detail": "Measured the provider-reported interval from the settled Base block timestamp to the invocation terminal update.",
+      "payment_block_timestamp": "2026-09-21T14:27:59.000Z",
+      "invocation_updated_at": "2026-09-21T14:28:03.382Z",
+      "observed_wait_ms": 4382
+    },
+    {
+      "step": "result",
+      "elapsed_ms": 5180,
+      "detail": "Validated the recovered inline OCR output against the live output schema and committed source digest.",
+      "output_schema": "ausca.document_ocr.output.v1",
+      "source_digest": "sha256:2193ab93788ed2dccfeaad06967deb0db2fe447d24ec2e51cd906b359e1b8ba0",
+      "output_digest": "sha256:41dd12584d228405c80a8a7722c4cbb96c8d3c97d03fb052d67d1baffc9d1a75",
+      "line_count": 10,
+      "text_chars": 330
+    },
+    {
+      "step": "receipt",
+      "elapsed_ms": 5978,
+      "detail": "Captured and read back the public receipt URL returned by the succeeded invocation.",
+      "duration_ms": 798,
+      "receipt_public_url": "https://runx.ai/r/717f68fae2fdf7be3bb486679580bde8f97acc217f3a043fc1b82fbf77d6f4d3",
+      "receipt_ref": {
+        "type": "receipt",
+        "uri": "runx:receipt:sha256:717f68fae2fdf7be3bb486679580bde8f97acc217f3a043fc1b82fbf77d6f4d3",
+        "public_url": "https://runx.ai/r/717f68fae2fdf7be3bb486679580bde8f97acc217f3a043fc1b82fbf77d6f4d3"
+      },
+      "public_status": 200,
+      "public_body_keys": []
+    },
+    {
+      "step": "total",
+      "elapsed_ms": 5978,
+      "detail": "Completed idempotent recovery, authoritative invocation validation, on-chain payment verification, and evidence assembly.",
+      "total_elapsed_ms": 5978
+    }
+  ],
+  "request_log": [
+    {
+      "label": "skill",
+      "method": "GET",
+      "url": "https://ausca.com/skills/document-ocr/SKILL.md",
+      "status": 200,
+      "body_keys": []
+    },
+    {
+      "label": "catalog",
+      "method": "GET",
+      "url": "https://ausca.com/catalog.json",
+      "status": 200,
+      "body_keys": [
+        "catalog",
+        "contract",
+        "mcp",
+        "offers",
+        "schema",
+        "schemas"
+      ]
+    },
+    {
+      "label": "artifact_commit",
+      "method": "POST",
+      "url": "https://ausca.com/v1/artifacts",
+      "status": 200,
+      "body_keys": [
+        "artifact",
+        "status"
+      ]
+    },
+    {
+      "label": "invocation_prepare",
+      "method": "POST",
+      "url": "https://ausca.com/v1/invocations/prepare",
+      "status": 200,
+      "body_keys": [
+        "status",
+        "invocation_id",
+        "challenge"
+      ]
+    },
+    {
+      "label": "invocation_read",
+      "method": "GET",
+      "url": "https://ausca.com/v1/invocations/paid_46a26d7c-d804-4d85-9b1c-255bfab508bd",
+      "status": 200,
+      "body_keys": [
+        "status",
+        "invocation"
+      ]
+    },
+    {
+      "label": "receipt_read",
+      "method": "GET",
+      "url": "https://runx.ai/r/717f68fae2fdf7be3bb486679580bde8f97acc217f3a043fc1b82fbf77d6f4d3",
+      "status": 200,
+      "body_keys": []
+    }
+  ],
+  "issues_and_changes": [
+    {
+      "identifier": "POST /v1/artifacts",
+      "issue": "The paid route takes an immutable artifact_ref rather than document bytes, so the client needs a separate free commitment step.",
+      "change": "Publish one concise HTTP commit example beside the CLI command in the skill guide."
+    },
+    {
+      "identifier": "PAYMENT-RESPONSE",
+      "issue": "Settlement evidence is separate from OCR completion; a client must still inspect the invocation state and output.",
+      "change": "Include a clearly named invocation polling URL in the settlement response."
+    },
+    {
+      "identifier": "catalog.json:request_example",
+      "issue": "The envelope requires several live revision and schema digests in addition to the artifact input, which is easy to omit in a hand-built client.",
+      "change": "Expose a canonical copy-ready request example generated directly from the active catalog."
+    }
+  ]
+}
