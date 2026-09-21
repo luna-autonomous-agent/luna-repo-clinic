@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Pay 1 USDC on Base — Luna</title>
+  <style>
+    :root { color-scheme: dark; --bg:#10131a; --panel:#171c26; --text:#f2f5f7; --muted:#a9b4c2; --accent:#a6e3a1; --line:#2c3545; --warn:#ffd580; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(145deg,#0e1117,#151b27); color:var(--text); font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif; }
+    main { max-width:680px; margin:0 auto; padding:56px 22px; }
+    .eyebrow { color:var(--accent); letter-spacing:.12em; text-transform:uppercase; font-size:.8rem; font-weight:700; }
+    h1 { font-size:clamp(2.2rem,8vw,4rem); line-height:1.05; margin:14px 0 18px; }
+    .lede { color:var(--muted); font-size:1.1rem; }
+    .card { border:1px solid var(--line); background:rgba(23,28,38,.9); border-radius:14px; padding:22px; margin:22px 0; }
+    .amount { color:var(--accent); font-size:2.2rem; font-weight:800; }
+    .label { color:var(--muted); font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; }
+    .address { display:block; overflow-wrap:anywhere; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.86rem; margin:8px 0 14px; }
+    button, .button { appearance:none; border:0; border-radius:9px; background:var(--accent); color:#102016; padding:13px 17px; font:inherit; font-weight:800; cursor:pointer; text-decoration:none; display:inline-block; margin:4px 6px 4px 0; }
+    button.secondary, .button.secondary { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+    .status { color:var(--muted); min-height:1.7em; margin-top:14px; }
+    .warning { color:var(--warn); }
+    .small { color:var(--muted); font-size:.9rem; }
+    code { overflow-wrap:anywhere; }
+    a { color:var(--accent); }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Luna · Base mainnet</div>
+    <h1>Pay 1 USDC</h1>
+    <p class="lede">This page prepares one exact native-USDC transfer on Base. Your wallet must show the recipient, token, network, and amount before you confirm.</p>
+
+    <section class="card">
+      <div class="amount">1.00 USDC</div>
+      <p><span class="label">Network</span><br>Base mainnet · chain ID 8453</p>
+      <p><span class="label">Recipient</span><span class="address" id="recipient">0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e</span>
+        <button class="secondary" id="copy">Copy address</button>
+      </p>
+      <p class="small">Native USDC contract: <code>0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913</code></p>
+      <button id="pay">Open wallet and pay 1 USDC</button>
+      <a class="button secondary" id="deeplink" href="ethereum:0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913@8453/transfer?address=0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e&amp;uint256=1000000">Open wallet link</a>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+    </section>
+
+    <p class="small">If the wallet button is unavailable, open the wallet link from a wallet-enabled mobile browser or send exactly 1 native USDC on Base to the recipient above. Do not send ETH, USDC on another network, or a similarly named token. A small amount of Base gas may be required.</p>
+    <p><a href="https://basescan.org/address/0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e">View the recipient on BaseScan</a> · <a href="../../">Back to Luna Repo Clinic</a></p>
+  </main>
+  <script>
+    (() => {
+      const recipient = '0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e';
+      const usdc = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
+      const chainId = '0x2105';
+      const transferData = '0xa9059cbb' + recipient.slice(2).padStart(64, '0') + (1000000).toString(16).padStart(64, '0');
+      const status = document.getElementById('status');
+      const setStatus = (text, warning = false) => { status.textContent = text; status.className = warning ? 'status warning' : 'status'; };
+      document.getElementById('copy').addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(recipient); setStatus('Recipient copied.'); }
+        catch (_) { setStatus('Copy was blocked; select the recipient text manually.', true); }
+      });
+      document.getElementById('pay').addEventListener('click', async () => {
+        if (!window.ethereum) { setStatus('No wallet was detected. Use the wallet link or copy the recipient.', true); return; }
+        try {
+          setStatus('Connecting to your wallet…');
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          const from = accounts && accounts[0];
+          if (!from) throw new Error('No wallet account was selected.');
+          const current = await window.ethereum.request({ method: 'eth_chainId' });
+          if (current.toLowerCase() !== chainId) {
+            try { await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId }] }); }
+            catch (switchError) {
+              if (switchError && switchError.code === 4902) {
+                await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [{ chainId, chainName: 'Base', nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 }, rpcUrls: ['https://mainnet.base.org'], blockExplorerUrls: ['https://basescan.org'] }] });
+              } else throw switchError;
+            }
+          }
+          setStatus('Review the wallet prompt: 1 native USDC on Base to the displayed recipient.');
+          const txHash = await window.ethereum.request({ method: 'eth_sendTransaction', params: [{ from, to: usdc, data: transferData, value: '0x0' }] });
+          setStatus('Transaction submitted. Waiting for Base confirmation…');
+          for (let i = 0; i < 45; i++) {
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            const receipt = await window.ethereum.request({ method: 'eth_getTransactionReceipt', params: [txHash] });
+            if (receipt) {
+              if (receipt.status === '0x1') { setStatus('Confirmed: '); const link = document.createElement('a'); link.href = 'https://basescan.org/tx/' + txHash; link.textContent = txHash; link.target = '_blank'; link.rel = 'noreferrer'; status.appendChild(link); }
+              else setStatus('The transaction reverted. No payment was confirmed.', true);
+              return;
+            }
+          }
+          setStatus('Still pending. Check the transaction on BaseScan: ' + txHash, true);
+        } catch (error) { setStatus(error && error.message ? error.message : 'The wallet request was cancelled or failed.', true); }
+      });
+    })();
+  </script>
+</body>
+</html>
