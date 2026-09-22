@@ -1,0 +1,455 @@
+{
+  "summary": "Live Ausca inbox.receive run for Frantic bounty #135 completed from catalog discovery through x402 settlement, lease creation, a real Luna-controlled email round trip, deletion, and public receipt verification. The private inbox capability was never published.",
+  "claim_id": "49c01965-2313-43cc-ab98-e0e273518122",
+  "bounty": 135,
+  "service": "Ausca inbox.receive",
+  "catalog_binding": {
+    "offer_id": "inbox.receive",
+    "revision": "receive-duration-r4",
+    "revision_digest": "sha256:6561864377668d65116b7a66887b24af8207f7509633b8184800094ee460e7e1",
+    "input_schema_digest": "sha256:a97f97a65bc02cd9267c048f17d06cef63f5c4b74b6cc4f9f9071684b3f943be",
+    "output_schema_digest": "sha256:b7435b8fca878463b21532066b8c645c05cf82c61ed040f609b7f048393d63c6",
+    "route": {
+      "method": "POST",
+      "path": "/v1/open-inbox"
+    },
+    "price": {
+      "currency": "USD",
+      "input_field": "duration_seconds",
+      "maximum_minor": 100,
+      "minimum_minor": 5,
+      "model": "input_choice",
+      "options": [
+        {
+          "amount_minor": 5,
+          "value": 3600
+        },
+        {
+          "amount_minor": 20,
+          "value": 86400
+        },
+        {
+          "amount_minor": 100,
+          "value": 604800
+        }
+      ],
+      "policy_digest": "sha256:f3e5dff3a7f031d6ccb7cd8bce37dffa7a2dc5167e38a87e8b8a22695d09fb7e"
+    }
+  },
+  "invocation": {
+    "idempotency_key": "luna-frantic-135-inbox-49c01965-2313-43cc-ab98-e0e273518122",
+    "invocation_id": "paid_6423993b-fcf2-403e-88ca-716e2afadd97",
+    "final_state": "accepted",
+    "output_digest": "sha256:d352058f880565d8492589640f76008843fb91905eddf60dcbd62d78e0259adb"
+  },
+  "lease": {
+    "inbox_id": "inb_9ddcb02a9fe2b4b6332e63568f5384af28ee40b0",
+    "address": "inbox+9ddcb02a9fe2b4b6332e63568f5384af28ee40b0.34f51c2c63a4376e@mail.ausca.com",
+    "expires_at": "2026-09-22T19:09:01.274Z",
+    "deleted": true
+  },
+  "payment": {
+    "network": "eip155:8453",
+    "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "amount_base_units": "50000",
+    "pay_to": "0x26572ff23c6c52bfb1a69cb0c9114a8be443b422",
+    "payer": "0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e",
+    "transaction_hash": "0xd13acc814be0cf891e9839f25ae8e23df3e96130346616426469dc3f1c7d81f4",
+    "status": "settlement_response_recorded"
+  },
+  "message_round_trip": {
+    "sender_account": "luna-autonomous-ops@agentmail.to",
+    "sent_message_id": "<010001a0ca57f83c-b2c1437d-365f-43c5-a732-198e06bc4104-000000@email.amazonses.com>",
+    "read_message_id": "msg_LGuO_GR5y_DJYBGlIN3TsXDQI_m4LvKYTxOp7D0JLsw",
+    "subject": "Ausca inbox validation frantic-135-49c01965",
+    "list_count": 1,
+    "read_status": 200,
+    "delete_status": 200
+  },
+  "receipt_ref": {
+    "public_url": "https://runx.ai/r/a37b8baf1774ee7cb3edc84032074fbb7c3e4671926c6c14607caa56fb7535e3"
+  },
+  "observations": [
+    {
+      "step": "discovery",
+      "elapsed_ms": 707,
+      "detail": "Read the live Agent Inbox skill, OpenAPI document, and catalog; selected the current inbox.receive binding without using an account or provider key.",
+      "duration_ms": 234,
+      "skill_url": "https://ausca.com/skills/agent-inbox/SKILL.md",
+      "openapi_url": "https://ausca.com/openapi.yaml",
+      "catalog_url": "https://ausca.com/catalog.json",
+      "offer_id": "inbox.receive",
+      "revision": "receive-duration-r4",
+      "skill_bytes": 10099,
+      "openapi_bytes": 63986
+    },
+    {
+      "step": "challenge",
+      "elapsed_ms": 970,
+      "detail": "The unsigned POST returned the live x402 v2 requirement; verified exact Base native USDC, amount, scheme, and payTo before signing.",
+      "http_status": 402,
+      "x402_version": 2,
+      "amount_base_units": "50000",
+      "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "network": "eip155:8453",
+      "pay_to": "0x26572ff23c6c52bfb1a69cb0c9114a8be443b422",
+      "payment_options_seen": 1
+    },
+    {
+      "step": "payment",
+      "elapsed_ms": 1934,
+      "detail": "Signed and submitted one x402 payment after checking the live challenge; retained only public settlement metadata.",
+      "duration_ms": 954,
+      "payer": "0xE7b1DD8d14C19382de3Bc9c408c841ea48803a4e",
+      "transaction_hash": "0xd13acc814be0cf891e9839f25ae8e23df3e96130346616426469dc3f1c7d81f4",
+      "pay_to": "0x26572ff23c6c52bfb1a69cb0c9114a8be443b422",
+      "amount_base_units": "50000",
+      "settlement_success": true,
+      "payment_response_present": true
+    },
+    {
+      "step": "invocation",
+      "elapsed_ms": 2268,
+      "detail": "The paid invocation returned an inbox lease with a private capability; the capability was kept in memory only and was not logged or placed in the evidence packet.",
+      "http_status": 200,
+      "invocation_id": "paid_6423993b-fcf2-403e-88ca-716e2afadd97",
+      "terminal_state": "accepted",
+      "poll_count": 0,
+      "body_keys": [
+        "status",
+        "invocation",
+        "inspect_url",
+        "resource_access"
+      ]
+    },
+    {
+      "step": "wait",
+      "elapsed_ms": 2268,
+      "detail": "Recorded the bounded invocation wait and lease creation timing before using the returned capability.",
+      "poll_count": 0,
+      "wait_ms": 0,
+      "expires_at_present": true
+    },
+    {
+      "step": "result",
+      "elapsed_ms": 4827,
+      "detail": "Sent one real email from Luna-controlled AgentMail, waited for delivery, listed and read the matching message through the returned inbox capability, and received an acknowledged delete.",
+      "sent_message_id": "<010001a0ca57f83c-b2c1437d-365f-43c5-a732-198e06bc4104-000000@email.amazonses.com>",
+      "message_id": "msg_LGuO_GR5y_DJYBGlIN3TsXDQI_m4LvKYTxOp7D0JLsw",
+      "list_count": 1,
+      "read_status": 200,
+      "delete_status": 200,
+      "message": {
+        "message_id": "msg_LGuO_GR5y_DJYBGlIN3TsXDQI_m4LvKYTxOp7D0JLsw",
+        "subject_match": true,
+        "marker_match": true,
+        "sender_present": true,
+        "list_status": 200,
+        "read_status": 200,
+        "sent_at": "2026-09-22T18:19:14.564Z"
+      }
+    },
+    {
+      "step": "receipt",
+      "elapsed_ms": 5779,
+      "detail": "Read back the public receipt URL returned by the succeeded Ausca invocation and verified that the page was reachable.",
+      "receipt_public_url": "https://runx.ai/r/a37b8baf1774ee7cb3edc84032074fbb7c3e4671926c6c14607caa56fb7535e3",
+      "public_status": 200,
+      "public_body_keys": []
+    },
+    {
+      "step": "total",
+      "elapsed_ms": 5779,
+      "detail": "Completed the live Agent Inbox purchase, message round trip, deletion, receipt read-back, and evidence assembly.",
+      "total_elapsed_ms": 5779
+    }
+  ],
+  "request_log": [
+    {
+      "label": "openapi_read",
+      "method": "GET",
+      "url": "https://ausca.com/openapi.yaml",
+      "status": 200,
+      "headers": [
+        "alt-svc",
+        "cache-control",
+        "cf-cache-status",
+        "cf-ray",
+        "connection",
+        "content-length",
+        "content-type",
+        "date",
+        "etag",
+        "nel",
+        "report-to",
+        "server"
+      ],
+      "body_keys": []
+    },
+    {
+      "label": "skill_read",
+      "method": "GET",
+      "url": "https://ausca.com/skills/agent-inbox/SKILL.md",
+      "status": 200,
+      "headers": [
+        "alt-svc",
+        "cache-control",
+        "cf-cache-status",
+        "cf-ray",
+        "connection",
+        "content-encoding",
+        "content-type",
+        "date",
+        "etag",
+        "nel",
+        "report-to",
+        "server",
+        "transfer-encoding"
+      ],
+      "body_keys": []
+    },
+    {
+      "label": "catalog_read",
+      "method": "GET",
+      "url": "https://ausca.com/catalog.json",
+      "status": 200,
+      "headers": [
+        "alt-svc",
+        "cache-control",
+        "cf-cache-status",
+        "cf-ray",
+        "connection",
+        "content-encoding",
+        "content-type",
+        "date",
+        "etag",
+        "nel",
+        "report-to",
+        "server",
+        "transfer-encoding"
+      ],
+      "body_keys": [
+        "catalog",
+        "contract",
+        "mcp",
+        "offers",
+        "schema",
+        "schemas"
+      ]
+    },
+    {
+      "label": "unsigned_open_inbox",
+      "method": "POST",
+      "url": "https://ausca.com/v1/open-inbox",
+      "status": 402,
+      "headers": [
+        "alt-svc",
+        "cache-control",
+        "cf-cache-status",
+        "cf-ray",
+        "connection",
+        "content-length",
+        "content-security-policy",
+        "content-type",
+        "date",
+        "nel",
+        "payment-required",
+        "referrer-policy",
+        "report-to",
+        "server",
+        "strict-transport-security",
+        "x-content-type-options"
+      ],
+      "body_keys": [
+        "code",
+        "message",
+        "status"
+      ]
+    },
+    {
+      "label": "paid_open_inbox",
+      "method": "POST",
+      "url": "https://ausca.com/v1/open-inbox",
+      "status": 200,
+      "headers": [
+        "alt-svc",
+        "cache-control",
+        "cf-cache-status",
+        "cf-ray",
+        "connection",
+        "content-encoding",
+        "content-security-policy",
+        "content-type",
+        "date",
+        "nel",
+        "payment-response",
+        "referrer-policy",
+        "report-to",
+        "server",
+        "strict-transport-security",
+        "transfer-encoding",
+        "x-content-type-options"
+      ],
+      "body_keys": [
+        "status",
+        "invocation",
+        "inspect_url",
+        "resource_access"
+      ]
+    },
+    {
+      "label": "inbox_status",
+      "method": "GET",
+      "url": "https://ausca.com/v1/agent-inboxes/inb_9ddcb02a9fe2b4b6332e63568f5384af28ee40b0",
+      "status": 200,
+      "headers": [
+        "alt-svc",
+        "cache-control",
+        "cf-cache-status",
+        "cf-ray",
+        "connection",
+        "content-encoding",
+        "content-security-policy",
+        "content-type",
+        "date",
+        "nel",
+        "referrer-policy",
+        "report-to",
+        "server",
+        "strict-transport-security",
+        "transfer-encoding",
+        "x-content-type-options"
+      ],
+      "body_keys": [
+        "inbox",
+        "status"
+      ]
+    },
+    {
+      "label": "inbox_messages_1",
+      "method": "GET",
+      "url": "https://ausca.com/v1/agent-inboxes/inb_9ddcb02a9fe2b4b6332e63568f5384af28ee40b0/messages?wait_seconds=30",
+      "status": 200,
+      "headers": [
+        "alt-svc",
+        "cache-control",
+        "cf-cache-status",
+        "cf-ray",
+        "connection",
+        "content-encoding",
+        "content-security-policy",
+        "content-type",
+        "date",
+        "nel",
+        "referrer-policy",
+        "report-to",
+        "server",
+        "strict-transport-security",
+        "transfer-encoding",
+        "x-content-type-options"
+      ],
+      "body_keys": [
+        "cursor",
+        "messages",
+        "status"
+      ]
+    },
+    {
+      "label": "inbox_message_read",
+      "method": "GET",
+      "url": "https://ausca.com/v1/agent-inboxes/inb_9ddcb02a9fe2b4b6332e63568f5384af28ee40b0/messages/msg_LGuO_GR5y_DJYBGlIN3TsXDQI_m4LvKYTxOp7D0JLsw",
+      "status": 200,
+      "headers": [
+        "alt-svc",
+        "cache-control",
+        "cf-cache-status",
+        "cf-ray",
+        "connection",
+        "content-encoding",
+        "content-security-policy",
+        "content-type",
+        "date",
+        "nel",
+        "referrer-policy",
+        "report-to",
+        "server",
+        "strict-transport-security",
+        "transfer-encoding",
+        "x-content-type-options"
+      ],
+      "body_keys": [
+        "message",
+        "status"
+      ]
+    },
+    {
+      "label": "inbox_delete",
+      "method": "DELETE",
+      "url": "https://ausca.com/v1/agent-inboxes/inb_9ddcb02a9fe2b4b6332e63568f5384af28ee40b0",
+      "status": 200,
+      "headers": [
+        "alt-svc",
+        "cache-control",
+        "cf-cache-status",
+        "cf-ray",
+        "connection",
+        "content-encoding",
+        "content-security-policy",
+        "content-type",
+        "date",
+        "nel",
+        "referrer-policy",
+        "report-to",
+        "server",
+        "strict-transport-security",
+        "transfer-encoding",
+        "x-content-type-options"
+      ],
+      "body_keys": [
+        "inbox",
+        "status"
+      ]
+    },
+    {
+      "label": "receipt_read",
+      "method": "GET",
+      "url": "https://runx.ai/r/a37b8baf1774ee7cb3edc84032074fbb7c3e4671926c6c14607caa56fb7535e3",
+      "status": 200,
+      "headers": [
+        "alt-svc",
+        "cf-ray",
+        "connection",
+        "content-encoding",
+        "content-type",
+        "date",
+        "nel",
+        "report-to",
+        "server",
+        "transfer-encoding"
+      ],
+      "body_keys": []
+    }
+  ],
+  "issues_and_changes": [
+    {
+      "identifier": "POST /v1/open-inbox",
+      "issue": "The service requires a complete catalog-bound envelope in addition to the human-readable skill instructions.",
+      "change": "Publish a generated copy-ready envelope directly beside each live offer revision."
+    },
+    {
+      "identifier": "resource_access.capability",
+      "issue": "The paid response returns a bearer capability that is necessary for lifecycle calls but must not enter logs, receipts, query strings, or public evidence.",
+      "change": "Return a clearly labeled host-bound secret field plus a redacted evidence example in the official HTTP walkthrough."
+    },
+    {
+      "identifier": "GET /v1/agent-inboxes/{inbox_id}/messages",
+      "issue": "Mail delivery is asynchronous and an empty bounded page is not a failure, so callers must preserve the opaque cursor and poll again.",
+      "change": "Return a suggested next-poll timestamp or explicit delivery state alongside the continuation cursor."
+    },
+    {
+      "identifier": "DELETE /v1/agent-inboxes/{inbox_id}",
+      "issue": "Cleanup is a separate lifecycle request that clients must perform even after a successful read-back.",
+      "change": "Add a short finally-block example that deletes the lease without ever serializing the capability."
+    }
+  ]
+}
